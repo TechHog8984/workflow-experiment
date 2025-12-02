@@ -15,7 +15,7 @@ jobs:
           key: ${{ runner.os }}-test1dependencies-${{ hashFiles('test1version.txt')}}
       - name: produce dependencies
         run: |
-          if [ ! -d "$test1dependencies" ]; then
+          if [ ! -d "test1dependencies" ]; then
             echo "producing dependencies!"
             mkdir test1dependencies
             printf "#pragma once\n\n#define hiddennumber 100\n" > dependency.h
