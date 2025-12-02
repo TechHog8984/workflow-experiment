@@ -24,16 +24,19 @@ jobs:
         run: |
           gcc -o ./test1 ./test1.c -Itest1dependencies
           chmod +x ./test1
+      - name: Create timestamp
+        id: timestamp
+        run: echo "value=$(date +'%F_%H-%M-%S')" >> $GITHUB_OUTPUT
       - name: Create Tag
         run: |
-          git tag test1-${{ github.sha }}
-          git push origin test1-${{ github.sha }}
+          git tag test1-${{ steps.timestamp.outputs.value }}
+          git push origin test1-${{ steps.timestamp.outputs.value }}
       - name: Create Release
         id: create_test1_release
         uses: softprops/action-gh-release@v2
         with:
-          name: Release test1 ${{ github.sha }}
-          tag_name: test1-${{ github.sha }}
+          name: Release test1 ${{ steps.timestamp.outputs.value }}
+          tag_name: test1-${{ steps.timestamp.outputs.value }}
           body: new test1 prerelease
           draft: false
           prerelease: true
