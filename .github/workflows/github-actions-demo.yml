@@ -9,4 +9,4 @@ jobs:
         uses: actions/checkout@v5
       - run: echo "cloned ${{ github.repository }}"
       - name: Compile test1
-      - run: gcc -o test1 test1.c
+        run: gcc -o test1 test1.c
