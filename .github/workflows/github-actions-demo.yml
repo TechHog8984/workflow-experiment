@@ -25,7 +25,7 @@ jobs:
           if [ ! -d "test1dependencies" ]; then
             echo "producing dependencies!"
             mkdir test1dependencies
-            printf "#pragma once\n\n#define hiddennumber 100\n" > dependency.h
+            printf "#pragma once\n\n#define hiddennumber 100\n" > test1dependencies/dependency.h
           fi
       - name: Compile test1
         run: |
