@@ -37,7 +37,7 @@ jobs:
         with:
           name: Release test1 ${{ steps.timestamp.outputs.value }}
           tag_name: test1-${{ steps.timestamp.outputs.value }}
-          body: new test1 prerelease
+          body: {{ github.sha }}
           draft: false
           prerelease: true
           files: test1
