@@ -10,3 +10,14 @@ jobs:
       - run: echo "cloned ${{ github.repository }}"
       - name: Compile test1
         run: gcc -o test1 test1.c
+      - name: Create Release
+        id: create_test1_release
+        uses: comnoco/create-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release test1 ${{ github.ref }}
+          body: new test1 prerelease
+          draft: false
+          prerelease: true
