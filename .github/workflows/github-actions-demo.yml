@@ -19,7 +19,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           name: Release test1 ${{ github.sha }}
-          tag_name: test1-${{ github.ref }}
+          tag_name: test1-${{ github.sha }}
           body: new test1 prerelease
           draft: false
           prerelease: true
