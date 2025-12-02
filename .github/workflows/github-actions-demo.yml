@@ -8,9 +8,15 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v5
       - run: echo "cloned ${{ github.repository }}"
+      - name: cache for dependencies
+        uses: actions/cache@v4
+        with:
+          path: test1dependencies
+          key: ${{ runner.os }}-test1dependencies-${{ hashFiles('test1version.txt')}}
       - name: produce dependencies
         run: |
           if [ ! -d "$test1dependencies" ]; then
+            echo "producing dependencies!"
             mkdir test1dependencies
             printf "#pragma once\n\n#define hiddennumber 100\n" > dependency.h
           fi
