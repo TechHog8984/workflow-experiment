@@ -10,12 +10,16 @@ jobs:
       - run: echo "cloned ${{ github.repository }}"
       - name: Compile test1
         run: gcc -o test1 test1.c
+      - name: Create Tag
+        run: |
+          git tag test1-${{ github.sha }}
+          git push origin test1-${{ github.sha }}
       - name: Create Release
         id: create_test1_release
         uses: softprops/action-gh-release@v2
         with:
           name: Release test1 ${{ github.sha }}
-          tag_name: ${{ github.ref }}
+          tag_name: test1-${{ github.ref }}
           body: new test1 prerelease
           draft: false
           prerelease: true
