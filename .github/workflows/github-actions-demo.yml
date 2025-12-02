@@ -23,4 +23,3 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
     permissions:
       contents: write
-      workflows: write
