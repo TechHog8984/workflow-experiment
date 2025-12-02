@@ -8,9 +8,15 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v5
       - run: echo "cloned ${{ github.repository }}"
+      - name: produce dependencies
+        run: |
+          if [ ! -d "$test1dependencies" ]; then
+            mkdir test1dependencies
+            printf "#pragma once\n\n#define number 100\n" > dependency.h
+          fi
       - name: Compile test1
         run: |
-          gcc -o ./test1 ./test1.c
+          gcc -o ./test1 ./test1.c -Itest1dependencies
           chmod +x ./test1
       - name: Create Tag
         run: |
