@@ -21,3 +21,5 @@ jobs:
           prerelease: true
           files: test1
           token: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      contents: write
