@@ -1,6 +1,8 @@
 #include <stdio.h>
 
+#include "dependency.h"
+
 int main() {
-    puts("this program contains nothing but this print message and a return statement");
+    printf("hidden number: %d\n", hiddennumber);
     return 0;
 }

@@ -12,7 +12,7 @@ jobs:
         run: |
           if [ ! -d "$test1dependencies" ]; then
             mkdir test1dependencies
-            printf "#pragma once\n\n#define number 100\n" > dependency.h
+            printf "#pragma once\n\n#define hiddennumber 100\n" > dependency.h
           fi
       - name: Compile test1
         run: |
