@@ -20,3 +20,4 @@ jobs:
           draft: false
           prerelease: true
           files: test1
+          token: ${{ secrets.GITHUB_TOKEN }}
