@@ -13,6 +13,13 @@ jobs:
         with:
           path: test1dependencies
           key: ${{ runner.os }}-test1dependencies-${{ hashFiles('test1version.txt')}}
+      - name: list dependencies
+        run: |
+          if [ -d "test1dependencies" ]; then
+            ls test1dependencies
+          else
+            echo "no test1dependencies directory"
+          fi
       - name: produce dependencies
         run: |
           if [ ! -d "test1dependencies" ]; then
